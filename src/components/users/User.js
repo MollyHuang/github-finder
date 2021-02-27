@@ -1,18 +1,20 @@
 // rce + tab (Component)
 // rafce + tab
-import React, { Component, Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Spinner } from '../layout/Spinner';
 import { Link } from 'react-router-dom';
 import Repos from '../repos/Repos';
 
 const User = ({ loading, user, repos, getUser, getUserRepos, match }) => {
+
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
-    console.log('User -> useEffect', match.params.login)
-    // eslint-disbale-next-line
-  }, []);   // Not stop getting loop without []
+    console.log('User -> useEffect', 'eslint-disable-next-line');
+    // eslint-disable-next-line
+  }, []);
+  // Not stop getting loop without []
 
   const {
     name,
