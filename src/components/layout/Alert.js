@@ -1,7 +1,7 @@
 //racf + tab
 import React from 'react'
 
-export const Alert = ({ alert }) => {
+const Alert = ({ alert }) => {
   return (
     alert && (
       <div className={`alert alert-${alert.type}`}>
@@ -11,3 +11,4 @@ export const Alert = ({ alert }) => {
   )
 }
 
+export default Alert
