@@ -1,10 +1,10 @@
 // rce + tab (Component)
 // rafce + tab
-import React, { Fragment, useEffect, useContext } from 'react';
+import React, { useContext, useEffect, Fragment } from 'react';
+import GithubContext from '../../context/github/githubContext';
 import { Spinner } from '../layout/Spinner';
 import { Link } from 'react-router-dom';
 import Repos from '../repos/Repos';
-import GithubContext from '../../context/github/githubContext';
 
 const User = ({ match }) => {
   const githubContext = useContext(GithubContext);
@@ -41,9 +41,9 @@ const User = ({ match }) => {
 
       <Link to='/' className='btn btn-light'>
         Back To Search
-        </Link>
+      </Link>
 
-        Hireable:{' '}
+      Hireable:{' '}
       {hireable ? (
         <i className='fas fa-check text-success' />
       ) : (
