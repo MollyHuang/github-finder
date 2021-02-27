@@ -1,4 +1,4 @@
-// rce + tab
+// rce + tab (Component)
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
