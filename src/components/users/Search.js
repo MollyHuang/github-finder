@@ -1,8 +1,10 @@
 // rafce + tab
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
+import GithubContext from '../../context/github/githubContext';
 
-const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
+const Search = ({ showClear, clearUsers, setAlert }) => {
+  const githubContext = useContext(GithubContext);
   const [text, setText] = useState('');
 
   const onSubmit = e => {
@@ -12,7 +14,7 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
       setAlert('Please enter something', 'light');
     }
     else {
-      searchUsers(text);
+      githubContext.searchUsers(text);
       setText('');
     }
   }
@@ -37,7 +39,6 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
 }
 
 Search.propTypes = {
-  searchUsers: PropTypes.func.isRequired,
   clearUsers: PropTypes.func.isRequired,
   showClear: PropTypes.bool.isRequired,
   setAlert: PropTypes.func.isRequired
