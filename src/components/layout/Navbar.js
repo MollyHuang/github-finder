@@ -1,29 +1,28 @@
 // rce + tab
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export class Navbar extends Component {
-  // Default Values
-  static defaultProps = {
-    title: 'Github Finder',
-    icon: 'fab fa-github'
-  }
+// #13 - Stateless Functional Components
+const Navbar = ({ icon, title }) => {
+  return (
+    <nav className='navbar bg-primary'>
+      <h1>
+        <i className={icon} /> {title}
+      </h1>
+    </nav>
+  )
+}
 
-  // Define typescript
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired
-  }
+// Default Values
+Navbar.defaultProps = {
+  title: 'Github Finder',
+  icon: 'fab fa-github'
+}
 
-  render() {
-    return (
-      <nav className='navbar bg-primary'>
-        <h1>
-          <i className={this.props.icon} /> {this.props.title}
-        </h1>
-      </nav>
-    )
-  }
+// Define typescript
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired
 }
 
 export default Navbar

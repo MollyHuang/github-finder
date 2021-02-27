@@ -1,9 +1,11 @@
 //rce + tab
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const UserItem = props => {
+// #13 - Stateless Functional Components
+const UserItem = ({ user: { login, avatar_url, html_url } }) => {
 
-  const { login, avatar_url, html_url } = props.user;
+  //const { login, avatar_url, html_url } = props.user;   // #13 也可轉換成上面的寫法
 
   return (
     <div className='card text-center'>
@@ -22,5 +24,13 @@ const UserItem = props => {
     </div>
   )
 }
+
+UserItem.propTypes = {
+  user: PropTypes.object.isRequired
+}
+
+//user: ptor + tab
+//user: pta + tab
+//user: PropTypes.array,
 
 export default UserItem
