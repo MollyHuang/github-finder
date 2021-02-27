@@ -1,18 +1,27 @@
 //rce + tab
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types';   // impt + tab
 import UserItem from './UserItem';
+import { Spinner } from '../layout/Spinner';
 
-export class Users extends Component {
+const Users = ({ users, loading }) => {
 
-  render() {
-    return (
-      <div style={userStyle}>
-        {!this.props.loading && this.props.users.map(user => (
-          <UserItem key={user.id} user={user} />
-        ))}
-      </div>
-    )
+  if (loading) {
+    return <Spinner />
   }
+
+  return (
+    <div style={userStyle}>
+      {users.map(user => (
+        <UserItem key={user.id} user={user} />
+      ))}
+    </div>
+  )
+}
+
+Users.propTypes = {
+  users: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
 }
 
 const userStyle = {
